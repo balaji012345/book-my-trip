@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#174f86">
+  <meta name="description" content="Find your next great stay with BookMyTrip. Explore hand-picked hotels and travel deals.">
+  <title>BookMyTrip | Find your next great stay</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#home" aria-label="BookMyTrip home">
+        <span class="brand-word">bookmy</span><span class="brand-mark">trip<span>.com</span></span>
+      </a>
+
+      <div class="header-tools">
+        <a class="support" href="tel:+914412345678">
+          <span class="support-icon" aria-hidden="true">☎</span>
+          <span><small>Call 24/7 Support</small><strong>+91 (44) 1234 5678</strong></span>
+        </a>
+        <form class="quick-search" id="quickSearchForm" role="search">
+          <label class="visually-hidden" for="siteSearch">Search hotels and destinations</label>
+          <input id="siteSearch" type="search" placeholder="Search hotels or destinations">
+          <button type="submit" aria-label="Search">⌕</button>
+        </form>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="navbar" id="mainNav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <ul class="menu">
+        <li><a href="#hotels">Hotels</a></li>
+        <li><a href="#booking" data-booking-type="Flight">Flights</a></li>
+        <li><a href="#booking" data-booking-type="Vacation">Vacations</a></li>
+        <li><a href="#deals">Hot Deals</a></li>
+        <li><a href="#blogs">Travel Guides</a></li>
+        <li><a href="#blogs">Blogs</a></li>
+      </ul>
+      <div class="nav-buttons">
+        <button class="nav-button" type="button" data-account="sign-in">Sign in</button>
+        <button class="nav-button nav-button-light" type="button" data-account="account">My account</button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="home">
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-shade"></div>
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <span class="eyebrow">A little getaway goes a long way</span>
+          <h1 id="heroTitle">Make room for<br><em>somewhere wonderful.</em></h1>
+          <p>Find your stay, discover a new favorite place, and make every trip feel like yours.</p>
+          <a class="hero-link" href="#booking">Find your next stay <span aria-hidden="true">→</span></a>
+        </div>
+        <aside class="featured-card" aria-label="Featured hotel">
+          <span class="featured-label">Featured stay</span>
+          <h2>Paris Hilton Hotel</h2>
+          <p>Mumbai, India <span aria-hidden="true">·</span> Ocean-view escape</p>
+          <div class="featured-bottom">
+            <span class="featured-price"><strong>$1,200</strong> / night</span>
+            <span class="rating"><span aria-hidden="true">★</span> 4.9</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="booking-wrap" id="booking" aria-labelledby="bookingTitle">
+      <form class="booking" id="bookingForm">
+        <div class="booking-heading">
+          <div>
+            <span class="eyebrow eyebrow-blue">Plan your escape</span>
+            <h2 id="bookingTitle">Book your trip</h2>
+          </div>
+          <span class="booking-note">Your next great stay is just a search away.</span>
+        </div>
+        <div class="booking-fields">
+          <div class="field field-type">
+            <label for="tripType">What are you looking for?</label>
+            <select id="tripType" name="tripType">
+              <option value="Hotel">Hotels</option>
+              <option value="Flight">Flights</option>
+              <option value="Vacation">Vacations</option>
+            </select>
+          </div>
+          <div class="field field-destination">
+            <label for="destination">Where to?</label>
+            <input id="destination" name="destination" type="search" placeholder="City, hotel, or destination" required autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="checkIn">Check in</label>
+            <input id="checkIn" name="checkIn" type="date" required>
+          </div>
+          <div class="field">
+            <label for="checkOut">Check out</label>
+            <input id="checkOut" name="checkOut" type="date" required>
+          </div>
+          <div class="field field-guests">
+            <label for="guests">Guests & rooms</label>
+            <select id="guests" name="guests">
+              <option value="1">1 guest · 1 room</option>
+              <option value="2" selected>2 guests · 1 room</option>
+              <option value="3">3 guests · 1 room</option>
+              <option value="4">4 guests · 2 rooms</option>
+              <option value="5">5 guests · 2 rooms</option>
+              <option value="6">6 guests · 3 rooms</option>
+            </select>
+          </div>
+          <button class="search-btn" type="submit"><span aria-hidden="true">⌕</span> Search stays</button>
+        </div>
+        <p class="form-message" id="bookingMessage" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <div class="page-content">
+      <section class="section popular" id="hotels" aria-labelledby="hotelsTitle">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow eyebrow-blue">Hand-picked for you</span>
+            <h2 id="hotelsTitle">Popular hotels</h2>
+          </div>
+          <a class="text-link" href="#booking">Find your perfect stay <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="hotel-grid" id="hotelGrid">
+          <article class="hotel-card" data-search="hotel taj mahal palace mumbai india">
+            <div class="hotel-image-wrap">
+              <img src="images/taj-mahal-palace.jpg" alt="Elegant hotel exterior beside a swimming pool" loading="lazy">
+              <span class="image-badge">Guest favorite</span>
+              <span class="image-rating"><span aria-hidden="true">★</span> 4.9</span>
+            </div>
+            <div class="hotel-info">
+              <div class="hotel-location">Mumbai, India</div>
+              <h3>Hotel Taj Mahal Palace</h3>
+              <div class="hotel-meta"><span>Ocean views</span><span>·</span><span>Pool</span></div>
+              <div class="hotel-bottom"><span><strong>$2,000</strong> <small>/ night</small></span><button class="details-button" type="button" data-hotel="Hotel Taj Mahal Palace" data-location="Mumbai, India" data-price="$2,000" data-image="images/taj-mahal-palace.jpg">View stay</button></div>
+            </div>
+          </article>
+
+          <article class="hotel-card" data-search="mont blanc zurich switzerland">
+            <div class="hotel-image-wrap">
+              <img src="images/infinity-pool.jpg" alt="Resort infinity pool surrounded by greenery" loading="lazy">
+              <span class="image-badge">Sea-view escape</span>
+              <span class="image-rating"><span aria-hidden="true">★</span> 4.8</span>
+            </div>
+            <div class="hotel-info">
+              <div class="hotel-location">Zurich, Switzerland</div>
+              <h3>Mont Blanc</h3>
+              <div class="hotel-meta"><span>Infinity pool</span><span>·</span><span>Breakfast</span></div>
+              <div class="hotel-bottom"><span><strong>$1,500</strong> <small>/ night</small></span><button class="details-button" type="button" data-hotel="Mont Blanc" data-location="Zurich, Switzerland" data-price="$1,500" data-image="images/infinity-pool.jpg">View stay</button></div>
+            </div>
+          </article>
+
+          <article class="hotel-card" data-search="hotel marriott melbourne australia">
+            <div class="hotel-image-wrap">
+              <img src="images/deluxe-hotel-room.jpg" alt="Bright and comfortable hotel room" loading="lazy">
+              <span class="image-badge">Great for a getaway</span>
+              <span class="image-rating"><span aria-hidden="true">★</span> 4.7</span>
+            </div>
+            <div class="hotel-info">
+              <div class="hotel-location">Melbourne, Australia</div>
+              <h3>Hotel Marriott</h3>
+              <div class="hotel-meta"><span>Deluxe rooms</span><span>·</span><span>City center</span></div>
+              <div class="hotel-bottom"><span><strong>$1,200</strong> <small>/ night</small></span><button class="details-button" type="button" data-hotel="Hotel Marriott" data-location="Melbourne, Australia" data-price="$1,200" data-image="images/deluxe-hotel-room.jpg">View stay</button></div>
+            </div>
+          </article>
+        </div>
+        <p class="empty-state" id="emptyHotels" hidden>No stays match that destination yet. Try Mumbai, Zurich, or Melbourne.</p>
+      </section>
+
+      <section class="section deals" id="deals" aria-labelledby="dealsTitle">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow eyebrow-blue">A good time to get away</span>
+            <h2 id="dealsTitle">Hot deals</h2>
+          </div>
+          <span class="deal-caption">Little luxuries. Lovely prices.</span>
+        </div>
+        <div class="deal-grid">
+          <article class="deal-card deal-paris">
+            <img src="images/eiffel-tower-paris.jpg" alt="Paris and the Eiffel Tower" loading="lazy">
+            <div class="deal-overlay"></div>
+            <div class="deal-content">
+              <span class="deal-tag">City break · From $350</span>
+              <h3>Paris after<br>the lights come on.</h3>
+              <button type="button" class="deal-button" data-deal="Paris">Explore Paris <span aria-hidden="true">→</span></button>
+            </div>
+          </article>
+          <article class="deal-card deal-island">
+            <img src="images/mediterranean-coast.jpg" alt="Colorful buildings along the Mediterranean coast" loading="lazy">
+            <div class="deal-overlay"></div>
+            <div class="deal-content">
+              <span class="deal-tag">Island escape · Save up to 25%</span>
+              <h3>Blue water.<br>Absolutely no plans.</h3>
+              <button type="button" class="deal-button" data-deal="Santorini">Explore island stays <span aria-hidden="true">→</span></button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="blog-strip" id="blogs" aria-labelledby="blogsTitle">
+        <div class="blog-icon" aria-hidden="true">✦</div>
+        <div><span class="eyebrow eyebrow-blue">The travel edit</span><h2 id="blogsTitle">A few ideas for your next story.</h2></div>
+        <a href="#deals" class="text-link">Best places to visit in India <span aria-hidden="true">→</span></a>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a class="brand brand-footer" href="#home" aria-label="BookMyTrip home"><span class="brand-word">bookmy</span><span class="brand-mark">trip<span>.com</span></span></a>
+        <p>Go somewhere. Feel everything.<br>We’ll help you find the stay.</p>
+      </div>
+      <div class="footer-col">
+        <h2>Company</h2>
+        <a href="#home">About us</a><a href="#home">Terms &amp; conditions</a><a href="#home">Privacy policy</a><a href="#home">Careers</a>
+      </div>
+      <div class="footer-col">
+        <h2>Here to help</h2>
+        <a href="tel:+914412345678">Contact support</a><a href="mailto:hello@bookmytrip.example">FAQs</a><a href="#booking">Manage a booking</a>
+      </div>
+      <div class="footer-col footer-newsletter">
+        <h2>Good trips. Good inbox.</h2>
+        <p>Get thoughtful travel ideas and special offers.</p>
+        <form class="subscribe-form" id="subscribeForm">
+          <label class="visually-hidden" for="email">Email address</label>
+          <input id="email" name="email" type="email" placeholder="Your email address" required>
+          <button type="submit" aria-label="Subscribe">→</button>
+        </form>
+        <p class="subscribe-message" id="subscribeMessage" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 BookMyTrip. All rights reserved.</span><span>Made for the love of going places.</span></div>
+  </footer>
+
+  <dialog class="hotel-dialog" id="hotelDialog" aria-labelledby="dialogTitle">
+    <form method="dialog"><button class="dialog-close" aria-label="Close details">×</button></form>
+    <img class="dialog-image" id="dialogImage" src="" alt="">
+    <div class="dialog-content">
+      <span class="eyebrow eyebrow-blue">A stay worth looking forward to</span>
+      <h2 id="dialogTitle"></h2>
+      <p id="dialogLocation"></p>
+      <ul><li>Flexible booking options</li><li>Thoughtful service, lovely surroundings</li><li>Best price shown per night</li></ul>
+      <div class="dialog-bottom"><strong id="dialogPrice"></strong><button class="search-btn dialog-book" id="dialogBook" type="button">Plan this stay</button></div>
+    </div>
+  </dialog>
+
+  <dialog class="account-dialog" id="accountDialog" aria-labelledby="accountTitle">
+    <form method="dialog"><button class="dialog-close" aria-label="Close sign-in">×</button></form>
+    <div class="account-content">
+      <span class="eyebrow eyebrow-blue">Welcome to BookMyTrip</span>
+      <h2 id="accountTitle">Your next trip is closer.</h2>
+      <p>Sign in to keep your favorite stays and trip plans together.</p>
+      <form id="accountForm">
+        <label for="accountEmail">Email address</label>
+        <input id="accountEmail" type="email" placeholder="you@example.com" required>
+        <label for="accountPassword">Password</label>
+        <input id="accountPassword" type="password" placeholder="At least 6 characters" minlength="6" required>
+        <button class="search-btn" type="submit">Continue</button>
+      </form>
+      <p class="form-message" id="accountMessage" role="status" aria-live="polite"></p>
+    </div>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
